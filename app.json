@@ -1,0 +1,8 @@
+{
+  "name": "Messenger with Socket.IO on Heroku: Node.js",
+  "description": "A barebones Node.js app using socket.io",
+  "repository": "https://github.com/shlaikov/messenger",
+  "logo": "https://github.com/shlaikov/messenger/master/public/node.svg",
+  "keywords": ["node", "express", "socket.io", "heroku"],
+  "image": "heroku/nodejs"
+}

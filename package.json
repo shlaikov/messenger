@@ -1,0 +1,36 @@
+{
+  "name": "messenger",
+  "author": "Alexey Shlaikov",
+  "version": "0.1.0",
+  "description": "A sample Node.js app using Express, Socket.io",
+  "engines": {
+    "node": "8.9.0"
+  },
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node tests/test.js"
+  },
+  "dependencies": {
+    "ejs": "2.5.6",
+    "express": "4.15.2",
+    "gravatar": "^1.6.0",
+    "socket.io": "^2.0.4"
+  },
+  "devDependencies": {
+    "request": "^2.81.0",
+    "tape": "^4.7.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shlaikov/messenger"
+  },
+  "keywords": [
+    "node",
+    "chat",
+    "socket.io",
+    "heroku",
+    "express"
+  ],
+  "license": "MIT"
+}
