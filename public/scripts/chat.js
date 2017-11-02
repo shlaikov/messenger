@@ -60,7 +60,7 @@ $(function() {
 			loginForm.on('submit', function(e) {
 				e.preventDefault();
 				name = $.trim(yourName.val());
-				
+
 				if(name.length < 1) {
 					alert("Please enter a nick name longer than 1 character!");
 					return;
@@ -75,7 +75,11 @@ $(function() {
 					showMessage("inviteSomebody");
 
 					// call the server-side function 'login' and send user's parameters
-					socket.emit('login', {user: name, avatar: email, id: id});
+					socket.emit('login', {
+						user: name,
+						avatar: email,
+						id: id
+					});
 				}
 			});
 		}
@@ -103,7 +107,11 @@ $(function() {
 					alert("Wrong e-mail format!");
 				}
 				else {
-					socket.emit('login', {user: name, avatar: email, id: id});
+					socket.emit('login', {
+						user: name,
+						avatar: email,
+						id: id
+					});
 				}
 			});
 		}
@@ -114,7 +122,6 @@ $(function() {
 	});
 
 	// Other useful 
-
 	socket.on('startChat', function(data) {
 		console.log(data);
 		if(data.boolean && data.id == id) {
@@ -172,7 +179,6 @@ $(function() {
 		e.preventDefault();
 
 		// Create a new chat message and display it directly
-
 		showMessage("chatStarted");
 
 		if(textarea.val().trim().length) {
@@ -193,6 +199,7 @@ $(function() {
 
 		messageTimeSent.each(function() {
 			var each = moment($(this).data('time'));
+
 			$(this).text(each.fromNow());
 		});
 
