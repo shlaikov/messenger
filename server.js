@@ -1,5 +1,8 @@
 var debug = require('debug')('io');
 
+var log4js = require('log4js');
+var logger = log4js.getLogger();
+
 var express = require('express'),
     path    = require('path');
 
