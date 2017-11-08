@@ -1,8 +1,12 @@
 $(function () {
+	"use strict";
+	
 	var id = Number(window.location.pathname.match(/\/chat\/(\d+)$/)[1]);
 
 	// connect to the socket
 	var socket = io();
+
+	console.log(socket);
 
 	// variables which hold the data for each person
 	var name = "",
