@@ -17,6 +17,7 @@
     "express": "4.15.2",
     "gravatar": "^1.6.0",
     "jshint": "^2.9.5",
+    "log4js": "^2.3.11",
     "socket.io": "^2.0.4"
   },
   "devDependencies": {
