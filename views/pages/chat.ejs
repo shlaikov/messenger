@@ -2,52 +2,67 @@
 <html lang="en">
 
 <head>
-<% include ../partials/header.ejs %>
-<link type="text/css" rel="stylesheet" href="../stylesheets/chat.css" />
+    <% include ../partials/header.ejs %>
+        <link type="text/css" rel="stylesheet" href="../stylesheets/chat.css" />
 </head>
 
 <body>
     <header class="banner">
-        <h1 class="bannertext">
-            <p id="logo">NODE.JS CHAT</p>
-        </h1>
+        <div class="container">
+            <h1 class="bannertext">NODE.JS CHAT</h1>
+        </div>
     </header>
-    <section class="section">
-        <div class="connected">
-            <img src="../images/unnamed.jpg" id="creatorImage" />
-            <div class="infoConnected">
-                <h2>Who are you?</h2>
+    <div class="container">
+        <div class="connected row">
+            <div class="col-md-4">
+                <img src="../images/unnamed.jpg" id="creatorImage" />
+            </div>
+            <div class="infoConnected col-md-8">
+                <h2>Who're you?</h2>
+                <h5>Please, enter your nickname and email</h5>
                 <br/>
-                <form class="loginForm">
-                    <input type="text" id="yourName" placeholder="Your nick name..." />
-                    <br/>
-                    <input type="text" id="yourEmail" placeholder="Your email address..." />
-                    <br/>
-                    <input type="submit" id="yourEnter" value="Enter" />
-                </form>
+                <div class="form-box">
+                    <form class="loginForm">
+                        <input type="text" id="yourName" placeholder="Your nickname..." />
+                        <br/>
+                        <input type="text" id="yourEmail" placeholder="Your email address..." />
+                        <br/>
+                        <input type="submit" id="yourEnter" value="Enter" />
+                    </form>
+                </div>
             </div>
         </div>
-        <div class="personinside">
-            <img src="../images/unnamed.jpg" id="ownerImage" />
-            <div class="infoInside">
+        <div class="personinside row">
+            <div class="col-md-4">
+                <img src="../images/unnamed.jpg" id="ownerImage" />
+            </div>
+            <div class="infoInside col-md-8">
                 <h2>Chat with
                     <span class="nickname-chat"></span>
                 </h2>
                 <br/>
                 <form class="loginForm">
-                    <input type="text" id="hisName" placeholder="Your nick name" />
+                    <input type="text" id="hisName" placeholder="Your nickname..." />
                     <br/>
-                    <input type="text" id="hisEmail" placeholder="Your email address" />
+                    <input type="text" id="hisEmail" placeholder="Your email address..." />
                     <br/>
                     <input type="submit" id="hisEnter" value="CHAT" />
                 </form>
             </div>
         </div>
-        <div class="invite-textfield">
-            <h2>Oops, there are no other people in this chat!</h2>
-            <h5>Invite a friend by sending them this URL</h5>
-            <div class="link">
-                <a title="Invite a friend" href="" id="link"></a>
+        <div class="invite-textfield row">
+            <div class="col-md-12">
+                <h2>Oops, there are no other people in this chat!</h2>
+                <h5>Invite a friend by sending them this URL</h5>
+                <div class="link">
+                    <a title="Invite a friend" href="" id="link"></a>
+                    <div class="input-group">
+                        <input type="text" class="form-control" aria-label="...">
+                        <div class="input-group-btn">
+                            <!-- Buttons -->
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="left">
@@ -63,9 +78,11 @@
             <h5>There are already two people in it. Would you like to create a
                 <a title="New Room" href="/create" id="room">new room</a>?</h5>
         </div>
-        <div class="nomessages">
-            <img src="../images/unnamed.jpg" id="noMessagesImage" />
-            <div class="info">
+        <div class="nomessages row">
+            <div class="col-md-2">
+                <img src="../images/unnamed.jpg" id="noMessagesImage" />
+            </div>
+            <div class="info col-md-10">
                 <h2>You are chatting with
                     <span class="nickname-chat"></span>.</h2>
                 <h5>Send them a message from the form below!</h5>
@@ -76,13 +93,16 @@
                 <!-- The chat messages -->
             </ul>
         </div>
-    </section>
-
+    </div>
     <footer>
-        <form id="chatform">
-            <textarea id="message" placeholder="Write something..."></textarea>
-            <input type="submit" id="submit" value="SEND" />
-        </form>
+        <div class="container">
+            <form id="chatform">
+                <textarea id="message" placeholder="Write something..."></textarea>
+                <button type="submit" id="submit">
+                    <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+                </button>
+            </form>
+        </div>
     </footer>
 
     <script src="../scripts/moment.min.js"></script>
