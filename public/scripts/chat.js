@@ -1,20 +1,17 @@
 $(function () {
 	"use strict";
-	
+
 	var id = Number(window.location.pathname.match(/\/chat\/(\d+)$/)[1]);
 
-	// connect to the socket
 	var socket = io();
 
-	console.log(socket);
-
-	// variables which hold the data for each person
 	var name = "",
 		email = "",
 		img = "",
 		friend = "";
 
-	// cache some jQuery objects
+	var urlBuffer = window.location.href;
+
 	var section = $(".section"),
 		footer = $("footer"),
 		onConnect = $(".connected"),
@@ -25,7 +22,6 @@ $(function () {
 		noMessages = $(".nomessages"),
 		tooManyPeople = $(".toomanypeople");
 
-	// some more jquery objects
 	var chatNickname = $(".nickname-chat"),
 		leftNickname = $(".nickname-left"),
 		loginForm = $(".loginForm"),
@@ -33,12 +29,12 @@ $(function () {
 		yourEmail = $("#yourEmail"),
 		hisName = $("#hisName"),
 		hisEmail = $("#hisEmail"),
+		link = $("#link"),
 		chatForm = $("#chatform"),
 		textarea = $("#message"),
 		messageTimeSent = $(".timesent"),
 		chats = $(".chats");
 
-	// these variables hold images
 	var ownerImage = $("#ownerImage"),
 		leftImage = $("#leftImage"),
 		noMessagesImage = $("#noMessagesImage");
@@ -179,7 +175,6 @@ $(function () {
 	});
 
 	// Update the relative time stamps on the chat messages every minute
-
 	setInterval(function () {
 		messageTimeSent.each(function () {
 			var each = moment($(this).data('time'));
@@ -234,8 +229,12 @@ $(function () {
 			section.children().css('display', 'none');
 			onConnect.fadeIn(1200);
 		} else if (status === "inviteSomebody") {
-			// Set the invite link content
-			$("#link").text(window.location.href);
+			link.val(urlBuffer);
+
+			$("#buffer").click(function () {
+				link.val(urlBuffer).select();
+				document.execCommand("copy");
+			});
 
 			onConnect.fadeOut(1200, function () {
 				inviteSomebody.fadeIn(1200);
