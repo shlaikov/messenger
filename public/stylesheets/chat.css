@@ -56,6 +56,7 @@ body {
 }
 
 .bannertext {
+	display: block !important;
 	text-align: center;
 	margin-top: 0px;
 	padding-top: 15px;
@@ -349,7 +350,6 @@ body {
 	text-align: center;
 	display: block;
 	margin: 0px auto;
-	width: 750px;
 	height: 300px;
 	background-color: #ffffff;
 	border-radius: 3px;
@@ -369,8 +369,8 @@ body {
 }
 
 #leftImage {
-	float: left;
-	margin: 90px 0 0 140px;
+	float: initial;
+	margin: 70px 0 0 200px;
 	width: 100px;
 	height: 100px;
 	border-radius: 50%;
@@ -499,13 +499,13 @@ body {
 .me {
 	clear: both;
 	float: left;
-	margin-bottom: 10px;
+	margin-bottom: 35px;
 }
 
 .you {
 	clear: both;
 	float: right;
-	margin-bottom: 10px;
+	margin-bottom: 35px;
 }
 
 .you .image {
@@ -712,7 +712,7 @@ footer {
 	/* ------ Person Inside ------*/
 	.personinside {
 		width: auto;
-		height: 270px;
+		height: 290px;
 	}
 	.personinside h2 {
 		width: auto;
@@ -774,12 +774,37 @@ footer {
 	.invite-textfield h5 {
 		font-size: 14px;
 	}
+	/* ------ Left ------*/
+	.left {
+		margin: 0px auto;
+		height: 200px;
+		margin-bottom: 100px;
+	}
+	.left h2 {
+		font-size: 22px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+	.left h5 {
+		font-size: 14px;
+		margin-bottom: 50px;
+	}
+	#leftImage {
+		float: right;
+		margin: 30px 0 0 0px;
+		width: 50px;
+		height: 50px;
+	}
+	.nickname-left {
+		width: 50px;
+	}
 	/* ------ Chat Screen ------ */
 	.chatscreen {
 		margin: 0;
+		padding-bottom: 70px;
 	}
 	.image {
-		height: 100px;
+		height: 60px;
 		width: auto;
 	}
 	.image img {
@@ -792,7 +817,7 @@ footer {
 		padding-top: 0px;
 	}
 	.image i {
-		font-size: 2pt;
+		font-size: 7pt;
 		line-height: 1.0;
 		padding-top: 2px;
 	}
@@ -808,7 +833,7 @@ footer {
 		line-height: 1.2;
 	}
 	.chats .me p {
-		font-size: 12px;
+		font-size: 15px;
 		margin-left: 5px;
 		margin-bottom: 10px;
 		padding: 5px 8px;

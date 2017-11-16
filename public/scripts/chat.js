@@ -12,7 +12,7 @@ $(function () {
 
 	var urlBuffer = window.location.href;
 
-	var section = $(".section"),
+	var section = $(".container"),
 		footer = $("footer"),
 		onConnect = $(".connected"),
 		inviteSomebody = $(".invite-textfield"),
@@ -39,7 +39,6 @@ $(function () {
 		leftImage = $("#leftImage"),
 		noMessagesImage = $("#noMessagesImage");
 
-	// on connection to server get the id of person's room
 	socket.on('connect', function () {
 		socket.emit('load', id);
 	});
@@ -157,24 +156,21 @@ $(function () {
 
 	chatForm.on('submit', function (e) {
 		e.preventDefault();
-		// Create a new chat message and display it directly
 		showMessage("chatStarted");
 
 		if (textarea.val().trim().length) {
 			createChatMessage(textarea.val(), name, img, moment());
 			scrollToBottom();
-			// Send the message to the other person in the chat
+
 			socket.emit('msg', {
 				msg: textarea.val(),
 				user: name,
 				img: img
 			});
 		}
-		// Empty the textarea
 		textarea.val("");
 	});
 
-	// Update the relative time stamps on the chat messages every minute
 	setInterval(function () {
 		messageTimeSent.each(function () {
 			var each = moment($(this).data('time'));
@@ -183,7 +179,6 @@ $(function () {
 		});
 	}, 60000);
 
-	// Function that creates a new chat message
 	function createChatMessage(msg, user, imgg, now) {
 		var who = '';
 
@@ -228,6 +223,7 @@ $(function () {
 		if (status === "connected") {
 			section.children().css('display', 'none');
 			onConnect.fadeIn(1200);
+
 		} else if (status === "inviteSomebody") {
 			link.val(urlBuffer);
 
@@ -239,12 +235,14 @@ $(function () {
 			onConnect.fadeOut(1200, function () {
 				inviteSomebody.fadeIn(1200);
 			});
+
 		} else if (status === "personinchat") {
 			onConnect.css("display", "none");
 			personInside.fadeIn(1200);
 
 			chatNickname.text(data.user);
 			ownerImage.attr("src", data.avatar);
+
 		} else if (status === "youStartedChatWithNoMessages") {
 			left.fadeOut(1200, function () {
 				inviteSomebody.fadeOut(1200, function () {
@@ -255,6 +253,7 @@ $(function () {
 
 			friend = data.users[1];
 			noMessagesImage.attr("src", data.avatars[1]);
+
 		} else if (status === "heStartedChatWithNoMessages") {
 			personInside.fadeOut(1200, function () {
 				noMessages.fadeIn(1200);
@@ -263,16 +262,18 @@ $(function () {
 
 			friend = data.users[0];
 			noMessagesImage.attr("src", data.avatars[0]);
+
 		} else if (status === "chatStarted") {
 			section.children().css('display', 'none');
 			chatScreen.css('display', 'block');
+
 		} else if (status === "somebodyLeft") {
 			leftImage.attr("src", data.avatar);
 			leftNickname.text(data.user);
-
 			section.children().css('display', 'none');
 			footer.css('display', 'none');
 			left.fadeIn(1200);
+
 		} else if (status === "tooManyPeople") {
 			section.children().css('display', 'none');
 			tooManyPeople.fadeIn(1200);
