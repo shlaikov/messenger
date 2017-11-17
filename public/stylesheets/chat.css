@@ -67,80 +67,6 @@ body {
 }
 
 
-/* ------------ Section styles ------------ */
-
-
-/* ------ Home ------ */
-
-.homesection {
-	text-align: center;
-	margin-top: 140px;
-}
-
-.node {
-	padding-top: 20px;
-	text-align: center;
-	margin-bottom: 120px;
-}
-
-.node #chat {
-	font-family: 'Open Sans Condensed';
-	font-weight: normal;
-	color: #707368;
-}
-
-#nodelogo {
-	width: 410px;
-	height: 110px;
-	margin-bottom: 35px;
-}
-
-#create {
-	width: 300px;
-	height: 100px;
-	background-color: #70b1d1;
-	text-align: center;
-	display: block;
-	margin: 0px auto;
-	border-radius: 3px;
-	box-shadow: 0px 5px 5px #e4e8e7;
-	text-decoration: none;
-	margin-bottom: 70px;
-	color: #eeffff;
-}
-
-#create:visited {
-	color: #eeffff;
-	text-decoration: none;
-}
-
-#createbutton {
-	padding-top: 28px;
-}
-
-#little {
-	font-weight: normal;
-	font-size: 13px;
-}
-
-#big {
-	font-weight: bold;
-	font-size: 23px;
-}
-
-.tutorial {
-	margin-bottom: 90px;
-}
-
-#tutorial {
-	color: #88bfd4;
-}
-
-#tutorial:visited {
-	color: #88bfd4;
-}
-
-
 /* ------ Connected ------*/
 
 .connected {
@@ -227,7 +153,7 @@ body {
 	display: block;
 	margin: 0px auto;
 	width: 70%;
-	height: 310px;
+	height: 340px;
 	background-color: #ffffff;
 	border-radius: 3px;
 	box-shadow: 0px 3px 3px #e3e4e6;

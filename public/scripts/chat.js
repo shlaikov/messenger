@@ -12,7 +12,7 @@ $(function () {
 
 	var urlBuffer = window.location.href;
 
-	var section = $(".container"),
+	var section = $(".section"),
 		footer = $("footer"),
 		onConnect = $(".connected"),
 		inviteSomebody = $(".invite-textfield"),
